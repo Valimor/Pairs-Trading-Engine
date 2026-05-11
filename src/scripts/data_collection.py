@@ -1,7 +1,7 @@
 import yfinance as yf
 import numpy as np
 import pandas as pd
-from analysis import *
+from src.scripts.analysis import *
 
 # TODO: take a bunch of tickers and find the best pairs
 

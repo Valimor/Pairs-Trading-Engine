@@ -1,7 +1,7 @@
 import yfinance as yf
 import numpy as np
 import pandas as pd
-from analysis import *
+from src.scripts.analysis import *
 
 write_to_csv = True
 
@@ -10,18 +10,15 @@ universe = ['XOM', 'CVX', 'BP', 'SHEL', 'JPM', 'BAC', 'WFC', 'MS', 'KO', 'PEP', 
             'CL', 'MNST', 'KDP', 'MS', 'V', 'XLF', 'NEE', 'XLU', 'XOM', 'CVX', 'UPS', 'FDX', 'HD',
             'LOW', 'TXN', 'ADI', 'GILD', 'BIIB']
 
-# START BY CHECKING EXISTING STOCKS
+data = download_ticker_data_vix(universe, '2022-01-01', '2026-05-01')
+results = find_cointegrated_pairs(data, universe)
 
-old_data = download_ticker_data_vix(universe, '2022-01-01', '2024-01-01')
-results = find_cointegrated_pairs(old_data, universe)
-
-# RUN THE TRADES ON NEW DATA
-
-data = download_ticker_data_vix(universe, '2024-01-01', '2026-05-01')
+# TODO: scan based on previous ticker data (say from 2022 - 2024)
+#   - export the data from 2024-2026 and see if I turn a profit.
 
 print("--- Top Cointegrated Pairs ---")
 for p in results:
-    print(f"{p[0]} & {p[1]} | historical p-value: {p[2]:.4f}")
+    print(f"{p[0]} & {p[1]} | p-value: {p[2]:.4f}")
 
     if write_to_csv:
         # get the spread and p val (spread is all we care about)
