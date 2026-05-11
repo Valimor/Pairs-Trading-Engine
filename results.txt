@@ -1,0 +1,9 @@
+Threshold: 1.5   Final PnL: $-3017.72
+Threshold: 1.75   Final PnL: $-17290.5
+Threshold: 2   Final PnL: $-34706.4
+Threshold: 2.25   Final PnL: $-51551.3
+Threshold: 2.5   Final PnL: $-71970.8
+Threshold: 2.75   Final PnL: $-92217.4
+Threshold: 3   Final PnL: $-111595
+Threshold: 3.25   Final PnL: $-114821
+Threshold: 3.5   Final PnL: $-113854
