@@ -11,23 +11,6 @@ enum class Position { FLAT, LONG, SHORT };
 
 enum class Strategy { CONST, VIX, ROLL_VOL, GARCH };
 
-struct Trade {
-    std::string entryDate;
-    std::string exitDate;
-    double pnl;
-};
-
-// Inside strategy.hpp
-struct MarketData {
-    std::string date;
-    double priceA;
-    double priceB;
-    double vix;
-    double avgVix;
-    double zscore;
-    double beta;
-};
-
 class Backtester {
 private:
     // State Management
@@ -37,7 +20,7 @@ private:
     std::deque<double> spreadHistory;
 
     // Config
-    const Strategy currentStrat = Strategy::ROLL_VOL;
+    const Strategy currentStrat = Strategy::GARCH;
     size_t windowSize = 100;
     double capital = 100000.0; 
     double allocationPerLeg = 50000.0;

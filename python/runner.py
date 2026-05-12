@@ -18,7 +18,6 @@ def run_batch_backtest():
 
     for filename in files:
         file_path = os.path.join(regime_folder, filename)
-        print(f"File name: {filename}")
         print(f"Processing: {file_path}")
 
         # 2. Execute backtest.exe with the file path as an argument

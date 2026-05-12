@@ -4,6 +4,8 @@
 #include <string>
 #include <sstream>
 #include <quant/core/strategy.hpp>
+#include <filesystem> // C++17
+namespace fs = std::filesystem;
 
 // This function converts the CSV text file into a Vector of MarketData objects
 std::vector<MarketData> load_data(const std::string& filename) {
@@ -37,7 +39,7 @@ std::vector<MarketData> load_data(const std::string& filename) {
             row.vix = std::stod(columns[3]);
             row.avgVix = std::stod(columns[4]);
             row.zscore = std::stod(columns[5]);
-            row.beta = std::stod(columns[6]);
+            //row.beta = std::stod(columns[6]); TODO: IMPLEMENT THIS!
             data.push_back(row);
         }
     }
@@ -54,7 +56,6 @@ int main(int argc, char* argv[]) {
 
     // Extract the path from the arguments
     std::string csvPath(argv[1]);
-    std::cout << "--- Initializing Backtest for: " << csvPath << " ---" << std::endl;
 
     auto market_records = load_data(csvPath);
 
