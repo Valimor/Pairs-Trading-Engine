@@ -1,7 +1,7 @@
 #ifndef DATA_PROVIDER_HPP
 #define DATA_PROVIDER_HPP
 
-#include <quant/core/types.hpp> // TODO: check this
+#include <quant/core/types.hpp>
 #include <vector>
 #include <optional>
 

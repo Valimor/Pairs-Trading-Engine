@@ -10,11 +10,9 @@ universe = ['XOM', 'CVX', 'BP', 'SHEL', 'JPM', 'BAC', 'WFC', 'MS', 'KO', 'PEP', 
             'CL', 'MNST', 'KDP', 'MS', 'V', 'XLF', 'NEE', 'XLU', 'XOM', 'CVX', 'UPS', 'FDX', 'HD',
             'LOW', 'TXN', 'ADI', 'GILD', 'BIIB']
 
-data = download_ticker_data_vix(universe, '2019-01-01', '2020-01-01')
+data = download_ticker_data_vix(universe, '2020-01-01', '2024-01-01')
 results = find_cointegrated_pairs(data, universe)
 
-# TODO: scan based on previous ticker data (say from 2022 - 2024)
-#   - export the data from 2024-2026 and see if I turn a profit.
 
 print("--- Top Cointegrated Pairs ---")
 for p in results:

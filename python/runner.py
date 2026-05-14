@@ -36,6 +36,7 @@ def run_batch_backtest():
         output_list.append({'Ticker1':ticker1, 'Ticker2':ticker2, 'PnL':pnl})
 
     outputs = pd.DataFrame(output_list)
+    outputs = outputs.sort_values(by='PnL')
 
     outputs.to_csv(output_csv)
     print(f"\nBatch complete! Results written to {output_csv}")
