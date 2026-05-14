@@ -20,10 +20,14 @@ int main(int argc, char* argv[]) {
     // Choose the Data Source
     qr_core::CSVDataProvider csv_source(csvPath);
 
-    // 2. Choose the Engine
-    qr_engine::TradingEngine engine;
+    // Choose your strategy
+    qr_engine::GarchPolicy test_policy;
+    qr_core::TradeLogger test_logger("./data/backtest_logs/output.csv");
 
-    // 3. Press "Go"
+    // Plug them into the engine
+    qr_engine::TradingEngine engine(test_policy, test_logger);
+
+    // Run!
     engine.run(csv_source);
 
     return 0;

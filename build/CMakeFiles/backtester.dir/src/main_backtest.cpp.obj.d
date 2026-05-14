@@ -183,16 +183,8 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h \
  C:\Users\maxim\Documents\GitHub\QR\ Projects\Pairs\ Trading\ Engine\src\engines/trading_engine.cpp \
  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/engines/trading_engine.hpp \
- C:/msys64/ucrt64/include/c++/14.2.0/memory \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_tempbuf.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/align.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_atomic.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_base.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_lockfree_defines.h \
- C:/msys64/ucrt64/include/c++/14.2.0/backward/auto_ptr.h \
- C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_memory_defs.h \
- C:/msys64/ucrt64/include/c++/14.2.0/pstl/execution_defs.h \
+ C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/trade_logger.hpp \
+ C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/signal_policy.hpp \
  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/math_utils.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/deque \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_deque.h \
@@ -215,9 +207,19 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/numeric \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_numeric.h \
  C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_numeric_defs.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/pstl/execution_defs.h \
  C:/msys64/ucrt64/include/c++/14.2.0/algorithm \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algo.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/algorithmfwd.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_heap.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/uniform_int_dist.h \
- C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_algorithm_defs.h
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_tempbuf.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/memory \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/align.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_atomic.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_base.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_lockfree_defines.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/backward/auto_ptr.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_memory_defs.h

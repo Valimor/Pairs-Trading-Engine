@@ -17,6 +17,10 @@ public:
     
     // Reset to the beginning (useful for backtesting)
     virtual void reset() = 0;
+
+    // In your IDataProvider interface
+    virtual std::optional<MarketData> get_tick_at(size_t index) = 0;
+    virtual size_t total_ticks() const = 0;
 };
 
 } // namespace qr_core

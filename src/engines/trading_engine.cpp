@@ -1,5 +1,7 @@
 #include <quant/engines/trading_engine.hpp>
 #include <quant/core/math_utils.hpp>
+#include <quant/core/trade_logger.hpp>
+#include <quant/core/signal_policy.hpp>
 #include <iostream>
 
 namespace qr_engine {
@@ -15,55 +17,64 @@ void TradingEngine::run(qr_core::IDataProvider& data_source) {
 }
 
 void TradingEngine::on_tick(const qr_core::MarketData& tick) {
-    // 1. Calculate the current spread using the beta from the data source
     double current_spread = qr_math::basic::calculate_spread(tick.price_a, tick.price_b, tick.beta);
     
-    // 2. Adjust thresholds based on VIX (Dynamic Thresholding)
-    double base_entry = 2.0; // Your classic 2.0 Z-Score entry
-    double dynamic_entry = qr_math::signals::get_vol_adjusted_threshold(base_entry, tick.vix, tick.avg_vix);
+    // The engine asks its assigned strategy for the threshold
+    double dynamic_entry = policy_.get_threshold(tick);
     
-    // 3. Signal Generation Logic
+    // Matches your required signature perfectly
     check_signals(tick, current_spread, dynamic_entry);
 }
 
-void TradingEngine::check_signals(const qr_core::MarketData& tick, double current_spread, double entry_threshold) {
-    
-    // Safety Check: If spread is effectively zero, skip this tick to avoid NaN
-    if (std::abs(current_spread) < 0.000001) return;
-
+void TradingEngine::check_signals(const qr_core::MarketData& tick, double spread, double entry_threshold) {
     double z = tick.z_score;
 
-    //review this logic!
     if (!is_in_position_) {
+        // ENTRY LOGIC
         if (std::abs(z) > entry_threshold) {
             is_in_position_ = true;
             is_short_ = (z > 0);
-            entry_spread_ = current_spread;
+            entry_spread_ = spread;
 
+            // Calculate sizing
             double capital_to_deploy = portfolio_value_ * risk_per_trade_;
-            
-            // NaN-Proofing: Ensure we don't divide by zero
-            position_units_ = capital_to_deploy / std::abs(current_spread);
-            
-            current_cash_ -= capital_to_deploy; 
+            position_units_ = capital_to_deploy / std::abs(spread);
+            current_cash_ -= capital_to_deploy;
+
+            // Fill the 'Entry' portion of our persistent record
+            current_trade_record_.entry_date = tick.date_str;
+            current_trade_record_.entry_price = spread;
+            current_trade_record_.side = is_short_ ? "SHORT" : "LONG";
         }
     } 
     else {
-        // EXIT
-        double price_diff = is_short_ ? (entry_spread_ - current_spread) 
-                                     : (current_spread - entry_spread_);
-        
-        double trade_pnl = price_diff * position_units_;
+        // EXIT LOGIC (Mean Reversion)
+        if ((is_short_ && z <= 0) || (!is_short_ && z >= 0)) {
+            
+            double price_diff = is_short_ ? (entry_spread_ - spread) 
+                                         : (spread - entry_spread_);
+            
+            double trade_pnl = price_diff * position_units_;
 
-        // Safety Check: If something went wrong, don't update portfolio with NaN
-        if (std::isnan(trade_pnl) || std::isinf(trade_pnl)) {
-            std::cerr << "Warning: Trade PnL calculated as NaN/Inf. Skipping update." << std::endl;
-        } else {
-            current_cash_ += (portfolio_value_ * risk_per_trade_) + trade_pnl;
+            // Update Portfolio
+            double capital_returned = (portfolio_value_ * risk_per_trade_) + trade_pnl;
+            current_cash_ += capital_returned;
             portfolio_value_ = current_cash_;
+
+            // Complete the 'Exit' portion of the record
+            current_trade_record_.exit_date = tick.date_str;
+            current_trade_record_.exit_price = spread;
+            current_trade_record_.pnl = trade_pnl;
+            current_trade_record_.final_portfolio_value = portfolio_value_;
+
+            // Ship the record to the logger
+            logger_.log_trade(current_trade_record_);
+
+            // Reset Engine State (Independent of the Record)
+            is_in_position_ = false;
+            position_units_ = 0.0;
+            entry_spread_ = 0.0;
         }
-        
-        is_in_position_ = false;
     }
 }
 

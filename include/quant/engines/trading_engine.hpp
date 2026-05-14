@@ -3,6 +3,8 @@
 
 #include <quant/core/data_provider.hpp>
 #include <quant/core/types.hpp>
+#include <quant/core/trade_logger.hpp>
+#include <quant/core/signal_policy.hpp>
 #include <memory>
 
 namespace qr_engine {
@@ -21,10 +23,17 @@ public:
         return current_cash_;
     }
 
+    TradingEngine(ISignalPolicy& policy, qr_core::TradeLogger& logger) : policy_(policy), logger_(logger) {}
+
 private:
     // Logic internal to the engine
     void on_tick(const qr_core::MarketData& tick);
     void check_signals(const qr_core::MarketData& tick, double spread, double entry_threshold);
+
+    //objects
+    ISignalPolicy& policy_;
+    qr_core::TradeLogger& logger_;
+    qr_core::TradeRecord current_trade_record_;
     
     // Portfolio State
     double initial_capital_ = 100000.0; // Start with $100k
@@ -34,7 +43,7 @@ private:
 
     // pairs state
     double current_spread = 0.0;
-    
+
     // Position State
     bool is_in_position_ = false;
     bool is_short_ = false;

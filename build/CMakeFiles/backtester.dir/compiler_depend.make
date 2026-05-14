@@ -5,6 +5,8 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/csv_data_provider.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp \
+  C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/signal_policy.hpp \
+  C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/trade_logger.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -243,6 +245,24 @@ C:/msys64/ucrt64/include/c++/14.2.0/codecvt:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/main_backtest.cpp:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_lockfree_defines.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/allocated_ptr.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/cstddef:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/trade_logger.hpp:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_base.h:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/signal_policy.hpp:
+
 C:/msys64/ucrt64/include/_timeval.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/csv_data_provider.hpp:
@@ -259,8 +279,6 @@ C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quan
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp:
 
-C:/msys64/ucrt64/include/_mingw_mac.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp:
@@ -270,6 +288,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/bit:
 C:/msys64/ucrt64/include/c++/14.2.0/ext/numeric_traits.h:
 
 C:/msys64/ucrt64/include/_mingw.h:
+
+C:/msys64/ucrt64/include/_mingw_mac.h:
 
 C:/msys64/ucrt64/include/_mingw_off_t.h:
 
@@ -284,10 +304,6 @@ C:/msys64/ucrt64/include/_mingw_stat64.h:
 C:/msys64/ucrt64/include/c++/14.2.0/algorithm:
 
 C:/msys64/ucrt64/include/c++/14.2.0/backward/auto_ptr.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/ext/atomicity.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h:
 
@@ -305,25 +321,11 @@ C:/msys64/ucrt64/include/c++/14.2.0/tr1/beta_function.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/algorithmfwd.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_lockfree_defines.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/allocated_ptr.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/nested_exception.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_base.h:
 
@@ -403,6 +405,14 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/move.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/nested_exception.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/ext/atomicity.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/parse_numbers.h:
@@ -440,8 +450,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/requires_hosted.h:
 C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_atomic.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_base.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/specfun.h:
 
@@ -514,8 +522,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/cmath:
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/engines/trading_engine.cpp:
 
 C:/msys64/ucrt64/include/c++/14.2.0/concepts:
-
-C:/msys64/ucrt64/include/c++/14.2.0/cstddef:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstdio:
 
