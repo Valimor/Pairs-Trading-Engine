@@ -32,7 +32,7 @@ def run_batch_backtest():
         substrings = filename.split("_")
         ticker1 = substrings[0]
         ticker2 = substrings[1]
-        pnl = float(result.stdout.split("$")[1]) #evil approach
+        pnl = float(result.stdout)
         output_list.append({'Ticker1':ticker1, 'Ticker2':ticker2, 'PnL':pnl})
 
     outputs = pd.DataFrame(output_list)

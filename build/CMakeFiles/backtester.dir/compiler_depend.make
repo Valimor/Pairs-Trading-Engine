@@ -4,7 +4,7 @@
 CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/main_backtest.cpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/csv_data_provider.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp \
-  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/strategy_math.hpp \
+  C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -36,6 +36,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/cpp_type_traits.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/deque.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_defines.h \
@@ -84,11 +85,13 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_bvector.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_deque.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_heap.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_types.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_tempbuf.h \
@@ -120,6 +123,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/cwctype \
   C:/msys64/ucrt64/include/c++/14.2.0/debug/assertions.h \
   C:/msys64/ucrt64/include/c++/14.2.0/debug/debug.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/deque \
   C:/msys64/ucrt64/include/c++/14.2.0/exception \
   C:/msys64/ucrt64/include/c++/14.2.0/ext/aligned_buffer.h \
   C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h \
@@ -140,11 +144,13 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/locale \
   C:/msys64/ucrt64/include/c++/14.2.0/memory \
   C:/msys64/ucrt64/include/c++/14.2.0/new \
+  C:/msys64/ucrt64/include/c++/14.2.0/numeric \
   C:/msys64/ucrt64/include/c++/14.2.0/optional \
   C:/msys64/ucrt64/include/c++/14.2.0/ostream \
   C:/msys64/ucrt64/include/c++/14.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/14.2.0/pstl/pstl_config.h \
   C:/msys64/ucrt64/include/c++/14.2.0/ratio \
   C:/msys64/ucrt64/include/c++/14.2.0/sstream \
@@ -251,9 +257,7 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/predefined_ops.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc:
-
-C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/strategy_math.hpp:
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp:
 
 C:/msys64/ucrt64/include/_mingw_mac.h:
 
@@ -353,6 +357,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/deque.tcc:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets_nonio.tcc:
@@ -397,6 +403,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/move.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/parse_numbers.h:
 
 C:/msys64/ucrt64/include/math.h:
@@ -420,6 +428,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/ostream:
 C:/msys64/ucrt64/include/c++/14.2.0/bits/quoted_string.h:
 
 C:/msys64/ucrt64/include/stdio.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/numeric:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h:
 
@@ -445,6 +455,10 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algo.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_bvector.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/cstdint:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_deque.h:
+
 C:/msys64/ucrt64/include/corecrt_stdio_config.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h:
@@ -458,6 +472,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h:
 C:/msys64/ucrt64/include/c++/14.2.0/ratio:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_types.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_numeric.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_pair.h:
 
@@ -501,8 +517,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/concepts:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstddef:
 
-C:/msys64/ucrt64/include/c++/14.2.0/cstdint:
-
 C:/msys64/ucrt64/include/c++/14.2.0/cstdio:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstdlib:
@@ -514,6 +528,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/cwchar:
 C:/msys64/ucrt64/include/c++/14.2.0/cwctype:
 
 C:/msys64/ucrt64/include/c++/14.2.0/debug/assertions.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/deque:
 
 C:/msys64/ucrt64/include/c++/14.2.0/exception:
 
@@ -556,6 +572,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/pstl/execution_defs.h:
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_algorithm_defs.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_memory_defs.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_numeric_defs.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/pstl_config.h:
 

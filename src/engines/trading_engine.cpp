@@ -33,6 +33,7 @@ void TradingEngine::check_signals(const qr_core::MarketData& tick, double curren
 
     double z = tick.z_score;
 
+    //review this logic!
     if (!is_in_position_) {
         if (std::abs(z) > entry_threshold) {
             is_in_position_ = true;
@@ -48,7 +49,7 @@ void TradingEngine::check_signals(const qr_core::MarketData& tick, double curren
         }
     } 
     else {
-        // ... (Exit Logic) ...
+        // EXIT
         double price_diff = is_short_ ? (entry_spread_ - current_spread) 
                                      : (current_spread - entry_spread_);
         
