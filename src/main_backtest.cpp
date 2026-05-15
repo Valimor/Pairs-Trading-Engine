@@ -30,16 +30,17 @@ int main(int argc, char* argv[]) {
 
     std::vector<qr_core::OptimizationResult> all_results;
 
-    for (double a = 0.01; a <= 0.1; a += 0.01) {
-        for (double b = 0.8; b <= 0.95; b += 0.01) {
+    for (double a = 0.01; a <= 0.1; a += 0.02) {
+        for (double b = 0.8; b <= 0.95; b += 0.05) {
             // Run a window from index 0 to 1000 with these params
             all_results.push_back(controller.execute_window(0, 1000, a, b));
         }
     }
 
-    // Sort by Sharpe Ratio descending
+    // Sort by pnl descending
+    // could do sharpe ratio, but pnl is fun
     std::sort(all_results.begin(), all_results.end(), [](const qr_core::OptimizationResult& a, const qr_core::OptimizationResult& b) {
-        return a.sharpe_ratio > b.sharpe_ratio;
+        return a.total_pnl > b.total_pnl;
     });
 
     // The "Winner" is now at all_results[0]
