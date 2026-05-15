@@ -32,8 +32,11 @@ def run_batch_backtest():
         substrings = filename.split("_")
         ticker1 = substrings[0]
         ticker2 = substrings[1]
-        pnl = float(result.stdout)
-        output_list.append({'Ticker1':ticker1, 'Ticker2':ticker2, 'PnL':pnl})
+        results = result.stdout.split(",")
+        pnl = float(results[0])
+        alpha = float(results[1])
+        beta = float(results[2])
+        output_list.append({'Ticker1':ticker1, 'Ticker2':ticker2, 'PnL':pnl, 'Alpha':alpha, 'Beta':beta})
 
     outputs = pd.DataFrame(output_list)
     outputs = outputs.sort_values(by='PnL')
@@ -41,7 +44,7 @@ def run_batch_backtest():
     outputs.to_csv(output_csv)
     print(f"\nBatch complete! Results written to {output_csv}")
 
-    print(f"\nDataframe description:\n{outputs.describe()}")
+    print(f"\nDescription:\n{outputs.describe()}")
 
 if __name__ == "__main__":
     run_batch_backtest()

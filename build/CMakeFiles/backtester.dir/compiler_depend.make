@@ -4,6 +4,7 @@
 CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/main_backtest.cpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/csv_data_provider.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp \
+  C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/garch_calibrator.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/signal_policy.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/summary_logger.hpp \
@@ -11,13 +12,162 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/walk_forward_controller.hpp \
+  C:/dev/Eigen/eigen-master/Eigen/Core \
+  C:/dev/Eigen/eigen-master/Eigen/Version \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ArithmeticSequence.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Array.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ArrayBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ArrayWrapper.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Assign.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/AssignEvaluator.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/BandMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Block.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CommaInitializer.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ConcatOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ConditionEstimator.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CoreEvaluators.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CoreIterators.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseBinaryOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseNullaryOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseTernaryOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseUnaryOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseUnaryView.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/DenseBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/DenseCoeffsBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/DenseStorage.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/DeviceWrapper.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Diagonal.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/DiagonalMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/DiagonalProduct.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Dot.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/EigenBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Fill.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/FindCoeff.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Fuzzy.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/GeneralProduct.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/GenericPacketMath.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/GlobalFunctions.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/IO.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/IndexedView.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/InnerProduct.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/InternalHeaderCheck.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Inverse.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Map.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/MapBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/MathFunctions.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/MathFunctionsImpl.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Matrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/MatrixBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/NestByValue.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/NoAlias.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/NumTraits.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/PartialReduxEvaluator.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/PermutationMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/PlainObjectBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Product.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ProductEvaluators.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Random.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/RandomImpl.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/RealView.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Redux.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Ref.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Replicate.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Reshaped.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/ReturnByValue.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Reverse.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Select.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/SelfAdjointView.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/SelfCwiseBinaryOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/SkewSymmetricMatrix3.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Solve.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/SolveTriangular.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/SolverBase.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/StableNorm.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/StlIterators.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Stride.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/StructuredBindings.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Swap.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Transpose.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Transpositions.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/TriangularMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/VectorBlock.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/VectorwiseOp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/Visitor.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/BFloat16.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/ConjHelper.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathComplex.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathDoubleWord.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathFrexpLdexp.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathPolynomials.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathPow.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathTrig.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/Half.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/Settings.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/Complex.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/MathFunctions.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/PacketMath.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/Reductions.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/TypeCasting.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/AssignmentFunctors.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/BinaryFunctors.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/NullaryFunctors.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/StlFunctors.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/TernaryFunctors.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/UnaryFunctors.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralBlockPanelKernel.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralMatrixMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralMatrixVector.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/Parallelizer.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointMatrixMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointMatrixVector.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointProduct.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointRank2Update.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularMatrixMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularMatrixVector.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularSolverMatrix.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularSolverVector.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/AOCL_Support.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Assert.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/BlasUtil.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ConfigureVectorization.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Constants.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/DisableStupidWarnings.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/EmulateArray.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ForwardDeclarations.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/IndexedViewHelper.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/IntegralConstant.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/MKL_support.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Macros.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Memory.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Meta.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/MoreMeta.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ReenableStupidWarnings.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ReshapedHelper.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Serializer.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/StaticAssert.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/SymbolicIndex.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/XprHelper.h \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/ArrayCwiseBinaryOps.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/ArrayCwiseUnaryOps.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/BlockMethods.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/CommonCwiseBinaryOps.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/CommonCwiseUnaryOps.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/IndexedViewMethods.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/MatrixCwiseBinaryOps.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/MatrixCwiseUnaryOps.inc \
+  C:/dev/Eigen/eigen-master/Eigen/src/plugins/ReshapedMethods.inc \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
   C:/msys64/ucrt64/include/_mingw_off_t.h \
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/_mingw_stat64.h \
   C:/msys64/ucrt64/include/_timeval.h \
+  C:/msys64/ucrt64/include/assert.h \
   C:/msys64/ucrt64/include/c++/14.2.0/algorithm \
+  C:/msys64/ucrt64/include/c++/14.2.0/array \
   C:/msys64/ucrt64/include/c++/14.2.0/backward/auto_ptr.h \
   C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bit \
@@ -42,6 +192,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/deque.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/erase_if.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_defines.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_ptr.h \
@@ -53,6 +204,8 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/hashtable.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/istream.tcc \
@@ -69,6 +222,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/move.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/node_handle.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/parse_numbers.h \
@@ -85,6 +239,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/specfun.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/std_abs.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_bvector.h \
@@ -98,6 +253,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_relops.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_tempbuf.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_uninitialized.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_vector.h \
@@ -107,21 +263,27 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stringfwd.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/uniform_int_dist.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/unique_ptr.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/bits/unordered_map.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/utility.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/vector.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/version.h \
+  C:/msys64/ucrt64/include/c++/14.2.0/cassert \
   C:/msys64/ucrt64/include/c++/14.2.0/cctype \
   C:/msys64/ucrt64/include/c++/14.2.0/cerrno \
+  C:/msys64/ucrt64/include/c++/14.2.0/climits \
   C:/msys64/ucrt64/include/c++/14.2.0/clocale \
   C:/msys64/ucrt64/include/c++/14.2.0/cmath \
   C:/msys64/ucrt64/include/c++/14.2.0/codecvt \
+  C:/msys64/ucrt64/include/c++/14.2.0/compare \
+  C:/msys64/ucrt64/include/c++/14.2.0/complex \
   C:/msys64/ucrt64/include/c++/14.2.0/concepts \
   C:/msys64/ucrt64/include/c++/14.2.0/cstddef \
   C:/msys64/ucrt64/include/c++/14.2.0/cstdint \
   C:/msys64/ucrt64/include/c++/14.2.0/cstdio \
   C:/msys64/ucrt64/include/c++/14.2.0/cstdlib \
+  C:/msys64/ucrt64/include/c++/14.2.0/cstring \
   C:/msys64/ucrt64/include/c++/14.2.0/ctime \
   C:/msys64/ucrt64/include/c++/14.2.0/cwchar \
   C:/msys64/ucrt64/include/c++/14.2.0/cwctype \
@@ -138,6 +300,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/14.2.0/filesystem \
   C:/msys64/ucrt64/include/c++/14.2.0/fstream \
+  C:/msys64/ucrt64/include/c++/14.2.0/functional \
   C:/msys64/ucrt64/include/c++/14.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/14.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/14.2.0/ios \
@@ -179,7 +342,10 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/c++/14.2.0/tuple \
   C:/msys64/ucrt64/include/c++/14.2.0/type_traits \
   C:/msys64/ucrt64/include/c++/14.2.0/typeinfo \
+  C:/msys64/ucrt64/include/c++/14.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/14.2.0/utility \
   C:/msys64/ucrt64/include/c++/14.2.0/vector \
+  C:/msys64/ucrt64/include/c++/14.2.0/version \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -215,6 +381,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -222,6 +389,7 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -229,31 +397,26 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/emmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pmmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xmmintrin.h \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/engines/trading_engine.cpp
 
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/align.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/chrono.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/alloc_traits.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/codecvt:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/main_backtest.cpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_lockfree_defines.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/allocated_ptr.h:
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Product.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstddef:
 
@@ -263,39 +426,449 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_base.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/signal_policy.hpp:
 
-C:/msys64/ucrt64/include/_timeval.h:
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ConcatOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Dot.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/csv_data_provider.hpp:
 
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ArrayBase.h:
+
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/predefined_ops.h:
-
-C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp:
 
+C:/dev/Eigen/eigen-master/Eigen/src/Core/NestByValue.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/DenseStorage.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/predefined_ops.h:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/garch_calibrator.hpp:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/summary_logger.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h:
-
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp:
-
-C:/msys64/ucrt64/include/c++/14.2.0/fstream:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_path.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/walk_forward_controller.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bit:
+C:/dev/Eigen/eigen-master/Eigen/src/Core/DiagonalProduct.h:
+
+C:/msys64/ucrt64/include/stdint.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/DenseBase.h:
+
+C:/dev/Eigen/eigen-master/Eigen/Core:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/SymbolicIndex.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/MathFunctions.h:
+
+C:/msys64/ucrt64/include/crtdefs.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/MKL_support.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/GenericPacketMath.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/string:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/std_function.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Solve.h:
+
+C:/dev/Eigen/eigen-master/Eigen/Version:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Assign.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/XprHelper.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ArithmeticSequence.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_defines.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/StructuredBindings.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/PermutationMatrix.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/erase_if.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Array.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/GlobalFunctions.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/TriangularMatrix.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ArrayWrapper.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/PlainObjectBase.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_dir.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/AssignEvaluator.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CoreIterators.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/time_members.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/BandMatrix.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Fill.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/cwctype:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Block.h:
+
+C:/msys64/ucrt64/include/wchar.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/riemann_zeta.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/memory:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/cpp_type_traits.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CommaInitializer.h:
+
+C:/msys64/ucrt64/include/time.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/EigenBase.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ConditionEstimator.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/NumTraits.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Serializer.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/MathFunctionsImpl.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CoreEvaluators.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseBinaryOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/GeneralProduct.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseNullaryOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseTernaryOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseUnaryOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/CwiseUnaryView.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/DenseCoeffsBase.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/gamma.tcc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/DeviceWrapper.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/InnerProduct.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Diagonal.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/DiagonalMatrix.h:
+
+C:/msys64/ucrt64/include/limits.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Inverse.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/FindCoeff.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Fuzzy.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/IO.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/functexcept.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/IndexedView.h:
+
+C:/msys64/ucrt64/include/corecrt_startup.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ConfigureVectorization.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/InternalHeaderCheck.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Map.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/ptr_traits.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/MapBase.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/ratio:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_types.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/NoAlias.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Matrix.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Meta.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/MatrixBase.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/type_traits:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/PartialReduxEvaluator.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/PacketMath.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ProductEvaluators.h:
+
+C:/msys64/ucrt64/include/sys/types.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Random.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/RandomImpl.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/RealView.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Redux.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_heap.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Ref.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/functional:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Replicate.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Reshaped.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/ReturnByValue.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Reverse.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_vector.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Select.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tuple:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/sstream.tcc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/SelfAdjointView.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/SelfCwiseBinaryOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/SkewSymmetricMatrix3.h:
+
+C:/msys64/ucrt64/include/_mingw_stat64.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Visitor.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/SolveTriangular.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/SolverBase.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/StableNorm.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/StlIterators.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/requires_hosted.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Stride.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Swap.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Transpose.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/Transpositions.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/VectorBlock.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/ext/type_traits.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/VectorwiseOp.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/BFloat16.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/ConjHelper.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/MathFunctions.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathComplex.h:
+
+C:/msys64/ucrt64/include/pthread_compat.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathDoubleWord.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathFrexpLdexp.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/hypergeometric.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/array:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralBlockPanelKernel.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/Complex.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathPolynomials.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/cwchar:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathPow.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/GenericPacketMathTrig.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/Half.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/stdexcept:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/Default/Settings.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/parse_numbers.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/Reductions.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/arch/SSE/TypeCasting.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/AssignmentFunctors.h:
+
+C:/msys64/ucrt64/include/stddef.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/BinaryFunctors.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/chrono.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/align.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/NullaryFunctors.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/StlFunctors.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/concept_check.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/TernaryFunctors.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/functors/UnaryFunctors.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralMatrixMatrix.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf_iterator.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.tcc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/GeneralMatrixVector.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/Parallelizer.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointMatrixVector.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/pstl/execution_defs.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointProduct.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/special_function_util.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/SelfadjointRank2Update.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/MatrixCwiseUnaryOps.inc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularMatrixMatrix.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularMatrixVector.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularSolverMatrix.h:
+
+C:/msys64/ucrt64/include/signal.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/products/TriangularSolverVector.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/AOCL_Support.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Assert.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/initializer_list:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/BlasUtil.h:
+
+C:/msys64/ucrt64/include/corecrt.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Constants.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/DisableStupidWarnings.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/EmulateArray.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ForwardDeclarations.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/IndexedViewHelper.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/IntegralConstant.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/vector.tcc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Macros.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/Memory.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/MoreMeta.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ReenableStupidWarnings.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ReshapedHelper.h:
+
+C:/msys64/ucrt64/include/stdio.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/numeric:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/Core/util/StaticAssert.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/ArrayCwiseBinaryOps.inc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/ArrayCwiseUnaryOps.inc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/BlockMethods.inc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/CommonCwiseBinaryOps.inc:
+
+C:/msys64/ucrt64/include/pthread_time.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/CommonCwiseUnaryOps.inc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/IndexedViewMethods.inc:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/MatrixCwiseBinaryOps.inc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/beta_function.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/algorithmfwd.h:
+
+C:/dev/Eigen/eigen-master/Eigen/src/plugins/ReshapedMethods.inc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/ext/numeric_traits.h:
 
@@ -305,13 +878,11 @@ C:/msys64/ucrt64/include/_mingw_mac.h:
 
 C:/msys64/ucrt64/include/_mingw_off_t.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h:
-
 C:/msys64/ucrt64/include/_mingw_secapi.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h:
+C:/msys64/ucrt64/include/_timeval.h:
 
-C:/msys64/ucrt64/include/_mingw_stat64.h:
+C:/msys64/ucrt64/include/assert.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/algorithm:
 
@@ -319,73 +890,41 @@ C:/msys64/ucrt64/include/c++/14.2.0/backward/auto_ptr.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_ptr.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bit:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/alloc_traits.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/codecvt.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/debug/debug.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/charconv.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/beta_function.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/algorithmfwd.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/allocated_ptr.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_base.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.h:
-
-C:/msys64/ucrt64/include/wchar.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/riemann_zeta.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/memory:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/cpp_type_traits.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf_iterator.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algobase.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/concept_check.h:
+C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/debug/debug.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/charconv.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/codecvt.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/deque.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets_nonio.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_defines.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_dir.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets_nonio.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/functexcept.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_ptr.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_fwd.h:
 
@@ -393,17 +932,39 @@ C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/error_constants.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_ops.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_path.h:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/fstream.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/hashtable.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/pstl/pstl_config.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/hashtable_policy.h:
 
 C:/msys64/ucrt64/include/wctype.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/istream.tcc:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.h:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_conv.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h:
+C:/msys64/ucrt64/include/c++/14.2.0/fstream:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets_nonio.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h:
 
@@ -419,9 +980,9 @@ C:/msys64/ucrt64/include/c++/14.2.0/ext/atomicity.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/node_handle.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/parse_numbers.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc:
 
 C:/msys64/ucrt64/include/math.h:
 
@@ -430,8 +991,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/limits:
 C:/msys64/ucrt64/include/c++/14.2.0/bits/string_view.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/postypes.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ptr_traits.h:
 
 C:/msys64/ucrt64/include/sys/timeb.h:
 
@@ -443,25 +1002,13 @@ C:/msys64/ucrt64/include/c++/14.2.0/ostream:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/quoted_string.h:
 
-C:/msys64/ucrt64/include/stdio.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/numeric:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/refwrap.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/requires_hosted.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/shared_ptr_atomic.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/specfun.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tuple:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/sstream.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/std_abs.h:
 
@@ -477,15 +1024,7 @@ C:/msys64/ucrt64/include/corecrt_stdio_config.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_heap.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/ratio:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_types.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_numeric.h:
 
@@ -493,37 +1032,51 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_pair.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_raw_storage_iter.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_relops.h:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_tempbuf.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_uninitialized.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_vector.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stringfwd.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/version:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/uniform_int_dist.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/unique_ptr.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/unordered_map.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator_args.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/utility.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/vector.tcc:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/version.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/modified_bessel_func.tcc:
+
+C:/msys64/ucrt64/include/c++/14.2.0/cassert:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cctype:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cerrno:
+
+C:/msys64/ucrt64/include/c++/14.2.0/climits:
 
 C:/msys64/ucrt64/include/c++/14.2.0/clocale:
 
 C:/msys64/ucrt64/include/c++/14.2.0/string_view:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cmath:
+
+C:/msys64/ucrt64/include/c++/14.2.0/vector:
+
+C:/msys64/ucrt64/include/c++/14.2.0/compare:
+
+C:/msys64/ucrt64/include/c++/14.2.0/complex:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/engines/trading_engine.cpp:
 
@@ -533,13 +1086,13 @@ C:/msys64/ucrt64/include/c++/14.2.0/cstdio:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstdlib:
 
+C:/msys64/ucrt64/include/c++/14.2.0/cstring:
+
 C:/msys64/ucrt64/include/c++/14.2.0/ctime:
 
-C:/msys64/ucrt64/include/c++/14.2.0/cwchar:
-
-C:/msys64/ucrt64/include/c++/14.2.0/cwctype:
-
 C:/msys64/ucrt64/include/c++/14.2.0/debug/assertions.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mmintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/deque:
 
@@ -551,11 +1104,7 @@ C:/msys64/ucrt64/include/c++/14.2.0/ext/concurrence.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/ext/string_conversions.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/ext/type_traits.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/filesystem:
-
-C:/msys64/ucrt64/include/c++/14.2.0/initializer_list:
 
 C:/msys64/ucrt64/include/c++/14.2.0/iomanip:
 
@@ -579,25 +1128,17 @@ C:/msys64/ucrt64/include/c++/14.2.0/new:
 
 C:/msys64/ucrt64/include/c++/14.2.0/optional:
 
-C:/msys64/ucrt64/include/c++/14.2.0/pstl/execution_defs.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_algorithm_defs.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_memory_defs.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/glue_numeric_defs.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/pstl/pstl_config.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/sstream:
-
-C:/msys64/ucrt64/include/c++/14.2.0/stdexcept:
 
 C:/msys64/ucrt64/include/c++/14.2.0/stdlib.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/streambuf:
-
-C:/msys64/ucrt64/include/c++/14.2.0/string:
 
 C:/msys64/ucrt64/include/c++/14.2.0/system_error:
 
@@ -605,13 +1146,7 @@ C:/msys64/ucrt64/include/c++/14.2.0/tr1/ell_integral.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/exp_integral.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/gamma.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/hypergeometric.tcc:
-
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/legendre_function.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/modified_bessel_func.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/poly_hermite.tcc:
 
@@ -619,19 +1154,17 @@ C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++io.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/poly_laguerre.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/special_function_util.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/type_traits:
-
 C:/msys64/ucrt64/include/c++/14.2.0/typeinfo:
 
-C:/msys64/ucrt64/include/c++/14.2.0/vector:
+C:/msys64/ucrt64/include/c++/14.2.0/unordered_map:
+
+C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr-default.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/utility:
 
 C:/msys64/ucrt64/include/pthread_unistd.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/basic_file.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++locale.h:
 
@@ -639,25 +1172,13 @@ C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_base.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_inline.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr-default.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/os_defines.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/time_members.h:
-
-C:/msys64/ucrt64/include/corecrt.h:
-
-C:/msys64/ucrt64/include/corecrt_startup.h:
-
-C:/msys64/ucrt64/include/crtdefs.h:
-
 C:/msys64/ucrt64/include/ctype.h:
 
 C:/msys64/ucrt64/include/errno.h:
-
-C:/msys64/ucrt64/include/limits.h:
 
 C:/msys64/ucrt64/include/locale.h:
 
@@ -665,11 +1186,7 @@ C:/msys64/ucrt64/include/process.h:
 
 C:/msys64/ucrt64/include/pthread.h:
 
-C:/msys64/ucrt64/include/pthread_compat.h:
-
 C:/msys64/ucrt64/include/pthread_signal.h:
-
-C:/msys64/ucrt64/include/pthread_time.h:
 
 C:/msys64/ucrt64/include/sdks/_mingw_ddk.h:
 
@@ -677,30 +1194,32 @@ C:/msys64/ucrt64/include/sec_api/stdio_s.h:
 
 C:/msys64/ucrt64/include/sec_api/stdlib_s.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h:
+
+C:/msys64/ucrt64/include/sec_api/string_s.h:
+
 C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h:
 
 C:/msys64/ucrt64/include/sec_api/wchar_s.h:
 
-C:/msys64/ucrt64/include/signal.h:
-
-C:/msys64/ucrt64/include/stddef.h:
-
-C:/msys64/ucrt64/include/stdint.h:
+C:/msys64/ucrt64/include/string.h:
 
 C:/msys64/ucrt64/include/swprintf.inl:
 
-C:/msys64/ucrt64/include/sys/types.h:
-
-C:/msys64/ucrt64/include/time.h:
-
 C:/msys64/ucrt64/include/vadefs.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/emmintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mwaitintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pmmintrin.h:
+
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xmmintrin.h:

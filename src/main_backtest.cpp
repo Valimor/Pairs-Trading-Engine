@@ -24,32 +24,36 @@ int main(int argc, char* argv[]) {
     qr_core::CSVDataProvider provider(csvPath);
     provider.load_all();
 
+    // choose number of ticks
+    size_t total_size = provider.total_ticks();
+
+    if (total_size < 10) { 
+        std::cerr << "Error: Not enough data points in the provider to split into train/test sets.\n";
+        return 1;
+    }
+
+    double train_ratio = 0.6;
+    size_t train_ticks = static_cast<size_t>(total_size * train_ratio);
+    size_t test_ticks = total_size;
+
+    if (train_ticks < 5) {
+        std::cerr << "Error: Calculated training window is too small for GARCH calibration.\n";
+        return 1;
+    }
+
     // initialize trades and log
     qr_core::TradeLogger test_logger("./data/backtest_logs/output.csv");
     qr_engine::WalkForwardController controller(provider, test_logger);
+    qr_core::OptimizationResult result;
 
-    std::vector<qr_core::OptimizationResult> all_results;
+    // initial call
+    result = controller.execute_window(0, train_ticks, 0.8, 0.05);
 
-    for (double a = 0.01; a <= 0.1; a += 0.02) {
-        for (double b = 0.8; b <= 0.95; b += 0.05) {
-            // Run a window from index 0 to 1000 with these params
-            all_results.push_back(controller.execute_window(0, 1000, a, b));
-        }
-    }
+    //now, run the engine on the next data
+    qr_core::OptimizationResult future_result = controller.execute_window(train_ticks, test_ticks, result.alpha, result.beta);
 
-    // Sort by pnl descending
-    // could do sharpe ratio, but pnl is fun
-    std::sort(all_results.begin(), all_results.end(), [](const qr_core::OptimizationResult& a, const qr_core::OptimizationResult& b) {
-        return a.total_pnl > b.total_pnl;
-    });
-
-    // The "Winner" is now at all_results[0]
-    auto best = all_results[0];
-    std::cout << "Best Alpha: " << best.alpha << " | Best Beta: " << best.beta << std::endl;
-
-    //log it!
-    qr_core::SummaryLogger sum_log("./data/backtest_logs/grid_search_summary.csv");
-    sum_log.log_results(all_results);
+    std::cout  << future_result.total_pnl << "," << result.alpha 
+            << "," << result.beta;
 
     return 0;
 }

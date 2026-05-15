@@ -5,22 +5,25 @@ project(TwoPairsFramework VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 1. Define the Core Library (Header-only or source)
-# This contains your math_utils, GARCH, VIX logic, etc.
+# 1. Define the Core Library
 add_library(quant_core INTERFACE)
-target_include_directories(quant_core INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# Force the include paths directly. 
+# Make sure "C:/dev/Eigen" contains the actual subfolder named "Eigen"
+target_include_directories(quant_core INTERFACE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    "C:/dev/Eigen/eigen-master" 
+)
 
 # 2. Define the Backtester Executable
 add_executable(backtester 
     src/main_backtest.cpp 
-#    src/strategy.cpp
 )
 target_link_libraries(backtester PRIVATE quant_core)
 
-# 3. Define the Predictor Executable (The new "Forward" version)
+# 3. Define the Predictor Executable
 add_executable(predictor 
     src/main_predict.cpp 
-#    src/signal_generator.cpp
 )
 target_link_libraries(predictor PRIVATE quant_core)
 
