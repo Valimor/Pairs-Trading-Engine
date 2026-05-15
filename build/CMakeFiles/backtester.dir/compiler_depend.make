@@ -6,9 +6,11 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: C:/Users/maxim/Documents/Gi
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/signal_policy.hpp \
+  C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/summary_logger.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/trade_logger.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp \
   C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp \
+  C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/walk_forward_controller.hpp \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
   C:/msys64/ucrt64/include/_mingw_off_t.h \
@@ -245,8 +247,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/codecvt:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/src/main_backtest.cpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h:
@@ -267,21 +267,33 @@ C:/msys64/ucrt64/include/_timeval.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/csv_data_provider.hpp:
 
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h:
-
-C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/predefined_ops.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/trading_engine.hpp:
 
-C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/math_utils.hpp:
+C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/data_provider.hpp:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/summary_logger.hpp:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h:
 
 C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/core/types.hpp:
+
+C:/msys64/ucrt64/include/c++/14.2.0/fstream:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_path.h:
+
+C:/Users/maxim/Documents/GitHub/QR\ Projects/Pairs\ Trading\ Engine/include/quant/engines/walk_forward_controller.hpp:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bit:
 
@@ -357,8 +369,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/concept_check.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/deque.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h:
@@ -383,12 +393,6 @@ C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/error_constants.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_ops.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/fstream:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_path.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/fstream.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h:
@@ -402,6 +406,8 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_conv.h:
 C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/move.h:
 

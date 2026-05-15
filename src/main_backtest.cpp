@@ -2,6 +2,9 @@
 #include <filesystem>
 #include <quant/core/types.hpp>
 #include <quant/core/csv_data_provider.hpp>
+#include <quant/engines/walk_forward_controller.hpp>
+#include <quant/core/summary_logger.hpp>
+#include <algorithm>
 
 #include "engines/trading_engine.cpp"
 
@@ -18,17 +21,34 @@ int main(int argc, char* argv[]) {
     std::string csvPath(argv[1]);
 
     // Choose the Data Source
-    qr_core::CSVDataProvider csv_source(csvPath);
+    qr_core::CSVDataProvider provider(csvPath);
+    provider.load_all();
 
-    // Choose your strategy
-    qr_engine::GarchPolicy test_policy;
+    // initialize trades and log
     qr_core::TradeLogger test_logger("./data/backtest_logs/output.csv");
+    qr_engine::WalkForwardController controller(provider, test_logger);
 
-    // Plug them into the engine
-    qr_engine::TradingEngine engine(test_policy, test_logger);
+    std::vector<qr_core::OptimizationResult> all_results;
 
-    // Run!
-    engine.run(csv_source);
+    for (double a = 0.01; a <= 0.1; a += 0.01) {
+        for (double b = 0.8; b <= 0.95; b += 0.01) {
+            // Run a window from index 0 to 1000 with these params
+            all_results.push_back(controller.execute_window(0, 1000, a, b));
+        }
+    }
+
+    // Sort by Sharpe Ratio descending
+    std::sort(all_results.begin(), all_results.end(), [](const qr_core::OptimizationResult& a, const qr_core::OptimizationResult& b) {
+        return a.sharpe_ratio > b.sharpe_ratio;
+    });
+
+    // The "Winner" is now at all_results[0]
+    auto best = all_results[0];
+    std::cout << "Best Alpha: " << best.alpha << " | Best Beta: " << best.beta << std::endl;
+
+    //log it!
+    qr_core::SummaryLogger sum_log("./data/backtest_logs/grid_search_summary.csv");
+    sum_log.log_results(all_results);
 
     return 0;
 }

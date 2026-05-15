@@ -7,9 +7,11 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj
  C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/core/data_provider.hpp
  C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/core/math_utils.hpp
  C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/core/signal_policy.hpp
+ C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/core/summary_logger.hpp
  C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/core/trade_logger.hpp
  C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/core/types.hpp
  C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/engines/trading_engine.hpp
+ C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/include/quant/engines/walk_forward_controller.hpp
  C:/msys64/ucrt64/include/_mingw.h
  C:/msys64/ucrt64/include/_mingw_mac.h
  C:/msys64/ucrt64/include/_mingw_off_t.h

@@ -111,15 +111,23 @@ namespace qr_math {
 
     // --- 4. PERFORMANCE METRICS ---
     namespace performance {
-        inline double calculate_sharpe(const std::vector<double>& returns) {
-            if (returns.size() < 2) return 0.0;
-            
-            // Convert vector to deque for shared stats functions
+        inline double calculate_sharpe(const std::vector<double>& trade_pnls, double initial_capital) {
+            if (trade_pnls.size() < 2) return 0.0;
+
+            // Convert PnL to percentage returns
+            std::vector<double> returns;
+            for (double pnl : trade_pnls) {
+                returns.push_back(pnl / initial_capital);
+            }
+
+            // Use our existing stats functions
             std::deque<double> d_returns(returns.begin(), returns.end());
             double mean = stats::calculate_mean(d_returns);
             double std_dev = stats::calculate_stddev(d_returns, mean);
-            
+
             if (std_dev < 1e-9) return 0.0;
+
+            // Annualize (adjust the 252 if your trade frequency is higher/lower)
             return (mean / std_dev) * std::sqrt(252);
         }
     }

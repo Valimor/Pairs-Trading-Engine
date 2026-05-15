@@ -12,16 +12,11 @@ namespace qr_engine {
 class TradingEngine {
 public:
     // We pass a reference to the Interface, not a specific CSV loader
-    void run(qr_core::IDataProvider& data_source);
-    double getPortfolioValue() {
-        return portfolio_value_;
-    }
-    double getInitalCapital() {
-        return initial_capital_;
-    }
-    double getCurrentCash(){
-        return current_cash_;
-    }
+    void run(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx);
+    double getPortfolioValue() { return portfolio_value_; }
+    double getInitalCapital() { return initial_capital_; }
+    double getCurrentCash(){ return current_cash_; }
+    const std::vector<double>& get_trade_pnls() const { return trade_pnls_; }
 
     TradingEngine(ISignalPolicy& policy, qr_core::TradeLogger& logger) : policy_(policy), logger_(logger) {}
 
@@ -40,6 +35,7 @@ private:
     double current_cash_ = 100000.0;
     double portfolio_value_ = 100000.0;
     double risk_per_trade_ = 0.10;
+    std::vector<double> trade_pnls_; // Stores the PnL of each closed trade
 
     // pairs state
     double current_spread = 0.0;
@@ -49,6 +45,18 @@ private:
     bool is_short_ = false;
     double entry_spread_ = 0.0;
     double position_units_ = 0.0;
+
+    void reset_portfolio() {
+        current_cash_ = initial_capital_;
+        portfolio_value_ = initial_capital_;
+
+        is_in_position_ = false;
+        is_short_ = false;
+        entry_spread_ = 0.0;
+        position_units_ = 0.0;
+
+        current_spread = 0.0;
+    }
 };
 
 } 

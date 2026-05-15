@@ -10,6 +10,7 @@ class CSVDataProvider : public IDataProvider {
 private:
     std::vector<MarketData> data_buffer;
     size_t current_index = 0;
+    std::string file_path_;
 
     // Helper: Converts "YYYY-MM-DD" to a numerical timestamp
     std::time_t parse_date(const std::string& date_str) {
@@ -44,30 +45,7 @@ public:
         while (std::getline(file, line)) {
             if (line.empty()) continue; // Skip empty lines at end of file
 
-            std::stringstream ss(line);
-            std::string col;
-            std::vector<std::string> cols;
-
-            while (std::getline(ss, col, ',')) {
-                cols.push_back(col);
-            }
-
-            // Ensure we have enough columns to avoid out-of-bounds access
-            // Mapping: 0:Date, 1:PriceA, 2:PriceB, 3:VIX, 4:AvgVIX, 5:ZScore, 6:Beta
-            if (cols.size() >= 6) {
-                MarketData row;
-                row.date_str = cols[0];
-                row.timestamp = parse_date(cols[0]);
-                
-                row.price_a = safe_stod(cols[1]);
-                row.price_b = safe_stod(cols[2]);
-                row.vix     = safe_stod(cols[3]);
-                row.avg_vix = safe_stod(cols[4]);
-                row.z_score = safe_stod(cols[5]);
-                //row.beta    = safe_stod(cols[6]);
-
-                data_buffer.push_back(row);
-            }
+            data_buffer.push_back(parse_line(line));
         }
     }
 
@@ -76,6 +54,57 @@ public:
             return data_buffer[current_index++];
         }
         return std::nullopt;
+    }
+
+    MarketData parse_line(std::string line) {
+        MarketData row;
+
+        std::stringstream ss(line);
+        std::string col;
+        std::vector<std::string> cols;
+
+        while (std::getline(ss, col, ',')) {
+            cols.push_back(col);
+        }
+
+        row.date_str = cols[0];
+        row.timestamp = parse_date(cols[0]);
+        
+        if (cols.size() >= 6) {
+            row.price_a = safe_stod(cols[1]);
+            row.price_b = safe_stod(cols[2]);
+            row.vix     = safe_stod(cols[3]);
+            row.avg_vix = safe_stod(cols[4]);
+            row.z_score = safe_stod(cols[5]);
+            //row.beta    = safe_stod(cols[6]);
+        }
+
+        return row;
+    }
+
+    void load_all() {
+        std::ifstream file(file_path_);
+        std::string line;
+        
+        // Skip header
+        std::getline(file, line);
+
+        while (std::getline(file, line)) {
+            // Use your existing parsing logic (safe_stod, etc.)
+            MarketData tick = parse_line(line); 
+            data_buffer.push_back(tick);
+        }
+    }
+
+    std::optional<MarketData> get_tick_at(size_t index) override {
+        if(index < data_buffer.size()) {
+            return data_buffer[index];
+        }
+        return std::nullopt;
+    }
+
+    size_t total_ticks() const override {
+        return data_buffer.size();
     }
 
     void reset() override {

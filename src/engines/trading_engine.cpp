@@ -6,14 +6,16 @@
 
 namespace qr_engine {
 
-void TradingEngine::run(qr_core::IDataProvider& data_source) {
-    
-    while (auto tick = data_source.get_next_tick()) {
-        on_tick(tick.value());
-    }
+void TradingEngine::run(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx) {
+    // Reset state for a fresh window run
+    reset_portfolio(); 
 
-    // 4. return data
-    std::cout << portfolio_value_ - initial_capital_ << "\n";
+    for (size_t i = start_idx; i < end_idx; ++i) {
+        auto tick = provider.get_tick_at(i);
+        if (tick.has_value()) {
+            on_tick(tick.value());
+        }
+    }
 }
 
 void TradingEngine::on_tick(const qr_core::MarketData& tick) {
@@ -55,6 +57,8 @@ void TradingEngine::check_signals(const qr_core::MarketData& tick, double spread
                                          : (spread - entry_spread_);
             
             double trade_pnl = price_diff * position_units_;
+
+            trade_pnls_.push_back(trade_pnl);
 
             // Update Portfolio
             double capital_returned = (portfolio_value_ * risk_per_trade_) + trade_pnl;

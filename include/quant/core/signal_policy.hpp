@@ -45,20 +45,21 @@ private:
     double last_residual_ = 0.0;
     
     // Standard GARCH(1,1) parameters for equities
-    const double omega = 0.000005; 
-    const double alpha = 0.04;     
-    const double beta = 0.90;      
+    double alpha_;
+    double beta_;
+    double omega_;    
     const double baseline_sigma = 0.03;
 
     //TODO: add functions to perform maximum likelihood estimation on these parameters
     // to update them in real time to better fit market behaviors
 
 public:
-    GarchPolicy(double base = 2.0) : base_threshold_(base) {}
+    GarchPolicy(double base, double a, double b, double w = 0.000005) 
+        : base_threshold_(base), alpha_(a), beta_(b), omega_(w) {}
 
     double get_threshold(const qr_core::MarketData& tick) override {
         // 1. Predict today's variance: σ²_t = ω + αε²_{t-1} + βσ²_{t-1}
-        double predicted_var = omega + (alpha * std::pow(last_residual_, 2)) + (beta * last_variance_);
+        double predicted_var = omega_ + (alpha_ * std::pow(last_residual_, 2)) + (beta_ * last_variance_);
         double predicted_sigma = std::sqrt(predicted_var);
 
         // 2. Update state for the NEXT tick
