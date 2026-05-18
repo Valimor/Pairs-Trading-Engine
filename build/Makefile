@@ -141,6 +141,33 @@ predictor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\predictor.dir\build.make CMakeFiles/predictor.dir/build
 .PHONY : predictor/fast
 
+src/engines/trading_engine.obj: src/engines/trading_engine.cpp.obj
+.PHONY : src/engines/trading_engine.obj
+
+# target to build an object file
+src/engines/trading_engine.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backtester.dir\build.make CMakeFiles/backtester.dir/src/engines/trading_engine.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\predictor.dir\build.make CMakeFiles/predictor.dir/src/engines/trading_engine.cpp.obj
+.PHONY : src/engines/trading_engine.cpp.obj
+
+src/engines/trading_engine.i: src/engines/trading_engine.cpp.i
+.PHONY : src/engines/trading_engine.i
+
+# target to preprocess a source file
+src/engines/trading_engine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backtester.dir\build.make CMakeFiles/backtester.dir/src/engines/trading_engine.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\predictor.dir\build.make CMakeFiles/predictor.dir/src/engines/trading_engine.cpp.i
+.PHONY : src/engines/trading_engine.cpp.i
+
+src/engines/trading_engine.s: src/engines/trading_engine.cpp.s
+.PHONY : src/engines/trading_engine.s
+
+# target to generate assembly for a file
+src/engines/trading_engine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backtester.dir\build.make CMakeFiles/backtester.dir/src/engines/trading_engine.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\predictor.dir\build.make CMakeFiles/predictor.dir/src/engines/trading_engine.cpp.s
+.PHONY : src/engines/trading_engine.cpp.s
+
 src/main_backtest.obj: src/main_backtest.cpp.obj
 .PHONY : src/main_backtest.obj
 
@@ -199,6 +226,9 @@ help:
 	@echo ... rebuild_cache
 	@echo ... backtester
 	@echo ... predictor
+	@echo ... src/engines/trading_engine.obj
+	@echo ... src/engines/trading_engine.i
+	@echo ... src/engines/trading_engine.s
 	@echo ... src/main_backtest.obj
 	@echo ... src/main_backtest.i
 	@echo ... src/main_backtest.s

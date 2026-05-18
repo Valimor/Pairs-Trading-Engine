@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "backtester::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-backtester-Debug-e8dc0c97459659415a5b.json",
+					"jsonFile" : "target-backtester-Debug-812cdd3331b7b451c42f.json",
 					"name" : "backtester",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "predictor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-predictor-Debug-cd515744edf5bf0e23fc.json",
+					"jsonFile" : "target-predictor-Debug-7af1cc556b1316caa1d2.json",
 					"name" : "predictor",
 					"projectIndex" : 0
 				}

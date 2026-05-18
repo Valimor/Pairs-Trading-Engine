@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/backtester.dir/includes_CXX.rsp
 
-CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra -O3
+CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra -O3 -pthread
 

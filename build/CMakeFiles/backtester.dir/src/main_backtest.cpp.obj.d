@@ -167,12 +167,12 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/ext/aligned_buffer.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_dir.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/fs_ops.h \
- C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/types.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/vector \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_uninitialized.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_vector.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_bvector.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/vector.tcc \
+ C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/types.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/fstream \
  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/basic_file.h \
  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++io.h \
@@ -181,8 +181,8 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: \
  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/data_provider.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/optional \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/enable_special_members.h \
- C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/engines/walk_forward_controller.hpp \
  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/trade_logger.hpp \
+ C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/engines/walk_forward_controller.hpp \
  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/signal_policy.hpp \
  C:/Users/maxim/DOCUME~1/GitHub/QRPROJ~1/PAIRST~1/include/quant/core/math_utils.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/deque \
@@ -403,4 +403,11 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: \
  C:/dev/Eigen/eigen-master/Eigen/src/Core/StlIterators.h \
  C:/dev/Eigen/eigen-master/Eigen/src/Core/GlobalFunctions.h \
  C:/dev/Eigen/eigen-master/Eigen/src/Core/util/ReenableStupidWarnings.h \
- C:\Users\maxim\Documents\GitHub\QR\ Projects\Pairs\ Trading\ Engine\src\engines/trading_engine.cpp
+ C:/msys64/ucrt64/include/c++/14.2.0/future \
+ C:/msys64/ucrt64/include/c++/14.2.0/mutex \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/std_mutex.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/unique_lock.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/condition_variable \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_futex.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/atomic \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/std_thread.h

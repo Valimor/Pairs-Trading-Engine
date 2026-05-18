@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/predictor.dir/src/engines/trading_engine.cpp.obj"
+  "CMakeFiles/predictor.dir/src/engines/trading_engine.cpp.obj.d"
   "CMakeFiles/predictor.dir/src/main_predict.cpp.obj"
   "CMakeFiles/predictor.dir/src/main_predict.cpp.obj.d"
   "libpredictor.dll.a"

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/src/engines/trading_engine.cpp" "CMakeFiles/backtester.dir/src/engines/trading_engine.cpp.obj" "gcc" "CMakeFiles/backtester.dir/src/engines/trading_engine.cpp.obj.d"
   "C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/src/main_backtest.cpp" "CMakeFiles/backtester.dir/src/main_backtest.cpp.obj" "gcc" "CMakeFiles/backtester.dir/src/main_backtest.cpp.obj.d"
   )
 

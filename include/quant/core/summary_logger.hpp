@@ -10,8 +10,11 @@ namespace qr_core {
 struct OptimizationResult {
     double alpha;
     double beta;
+    double omega;
     double total_pnl;
     double sharpe_ratio;
+    double entry_z;
+    double stop_loss;
     int trade_count;
 };
 
