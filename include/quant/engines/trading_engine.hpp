@@ -59,11 +59,12 @@ private:
     void reset_portfolio() {
         current_cash_ = initial_capital_;
         portfolio_value_ = initial_capital_;
-        trade_pnls_.clear();
         is_in_position_ = false;
         is_short_ = false;
         entry_spread_ = 0.0;
         position_units_ = 0.0;
+        trade_pnls_.clear();
+        trade_pnls_.reserve(500);
     }
 };
 

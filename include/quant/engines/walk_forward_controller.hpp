@@ -10,6 +10,7 @@
 
 #include <Eigen/Core>
 #include <future>
+#include <thread>
 
 // include/quant/engines/walk_forward_controller.hpp
 namespace qr_engine {
@@ -98,36 +99,45 @@ public:
         }
 
         std::vector<qr_core::OptimizationResult> run_parallel_search(size_t train_start, size_t train_end) {
-            // 1. Run the Eigen MLE calibration ONCE on the main thread
-            Eigen::VectorXd history = extract_historical_spreads(train_start, train_end);
-            qr_math::GarchCalibrator calibrator;
-            qr_math::GarchParameters calibrated_garch = calibrator.fit(history);
+        // 1. Run the Eigen MLE calibration ONCE on the main thread
+        Eigen::VectorXd history = extract_historical_spreads(train_start, train_end);
+        qr_math::GarchCalibrator calibrator;
+        qr_math::GarchParameters calibrated_garch = calibrator.fit(history);
 
-            std::vector<std::future<qr_core::OptimizationResult>> futures;
+        // 2. Hardware Concurrency Layout Setup
+        unsigned int max_cores = std::thread::hardware_concurrency();
+        if (max_cores == 0) max_cores = 4; // Fallback default
 
-            // 2. MAP: Populate tasks asynchronously across strategy thresholds
-            for (double entry_z = 1.0; entry_z <= 3.0; entry_z += 0.5) {
-                for (double stop_loss = 0.02; stop_loss <= 0.10; stop_loss += 0.02) {
-                    
-                    // std::launch::async tells the OS to run this task on a separate core immediately
-                    futures.push_back(std::async(std::launch::async, 
-                        &WalkForwardController::evaluate_combination, this, 
-                        train_start, train_end, entry_z, stop_loss, calibrated_garch
-                    ));
+        // FIXED: Move declaration to the top so loops can safely access it
+        std::vector<qr_core::OptimizationResult> search_results;
+        std::vector<std::future<qr_core::OptimizationResult>> futures;
+
+        // 3. MAP: Populate tasks asynchronously across strategy thresholds
+        for (double entry_z = 1.0; entry_z <= 3.0; entry_z += 0.5) {
+            for (double stop_loss = 0.02; stop_loss <= 0.10; stop_loss += 0.02) {
+                
+                futures.push_back(std::async(std::launch::async, 
+                    &WalkForwardController::evaluate_combination, this, 
+                    train_start, train_end, entry_z, stop_loss, calibrated_garch
+                ));
+
+                // If we have filled up our physical CPU cores, wait for this batch to complete
+                if (futures.size() >= max_cores) {
+                    for (auto& fut : futures) {
+                        search_results.push_back(fut.get()); // Blocks cleanly per batch
+                    }
+                    futures.clear(); // Clear the bucket for the next batch of cores
                 }
             }
-
-            // 3. REDUCE: Block until completion and gather results
-            std::vector<qr_core::OptimizationResult> search_results;
-            search_results.reserve(futures.size());
-
-            for (auto& fut : futures) {
-                // .get() waits for the specific thread to finish and safely retrieves the struct
-                search_results.push_back(fut.get()); 
-            }
-
-            return search_results;
         }
+
+        // 4. REDUCE: Gather any remaining leftover tasks from the final partial batch
+        for (auto& fut : futures) {
+            search_results.push_back(fut.get());
+        }
+
+        return search_results;
+    }
 
         qr_core::OptimizationResult evaluate_combination(
         size_t start, size_t end, 

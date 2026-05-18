@@ -410,4 +410,6 @@ CMakeFiles/backtester.dir/src/main_backtest.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/condition_variable \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/atomic_futex.h \
  C:/msys64/ucrt64/include/c++/14.2.0/atomic \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/std_thread.h
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/std_thread.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/thread \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/this_thread_sleep.h
