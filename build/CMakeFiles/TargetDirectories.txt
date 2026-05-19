@@ -1,4 +1,0 @@
-C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/build/CMakeFiles/backtester.dir
-C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/build/CMakeFiles/predictor.dir
-C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/build/CMakeFiles/edit_cache.dir
-C:/Users/maxim/Documents/GitHub/QR Projects/Pairs Trading Engine/build/CMakeFiles/rebuild_cache.dir

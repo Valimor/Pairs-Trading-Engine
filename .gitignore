@@ -1,0 +1,14 @@
+# Ignore the entire C++ build directory and all its temporary dependencies
+build/
+
+# Ignore compiled Python C-extensions
+*.pyd
+*.so
+
+# Ignore Python runtime caches
+__pycache__/
+.pytest_cache/
+
+# Ignore local market data and logs so you don't accidentally push massive files
+data/historical/
+data/backtest_logs/

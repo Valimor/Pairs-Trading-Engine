@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\predictor.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\predictor.dir/objects.a @CMakeFiles\predictor.dir\objects1.rsp
-C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\predictor.dir/objects.a -Wl,--no-whole-archive -o predictor.exe -Wl,--out-implib,libpredictor.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\predictor.dir\linkLibs.rsp

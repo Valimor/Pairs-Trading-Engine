@@ -3,6 +3,7 @@
 
 #include <quant/core/data_provider.hpp>
 #include <quant/core/types.hpp>
+#include <iomanip>
 
 namespace qr_core {
 

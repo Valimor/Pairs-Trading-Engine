@@ -9,3 +9,5 @@ Suggested Execution Order
     Mathematical Upgrades: Implement the GARCH-X or Student's t-distribution math layer inside Eigen.
 
     Expand your GARCH variance equation to include an external signal:$$\sigma^2_t = \omega + \alpha \epsilon^2_{t-1} + \beta \sigma^2_{t-1} + \gamma \text{VIX}_{t-1}$$
+
+    maybe move code from the walk_forwardcontroller.hpp to a .cpp in engines?

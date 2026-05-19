@@ -113,8 +113,8 @@ public:
         std::vector<std::future<qr_core::OptimizationResult>> futures;
 
         // 3. MAP: Populate tasks asynchronously across strategy thresholds
-        for (double entry_z = 1.0; entry_z <= 3.0; entry_z += 0.5) {
-            for (double stop_loss = 0.02; stop_loss <= 0.10; stop_loss += 0.02) {
+        for (double entry_z = 1.0; entry_z <= 3.0; entry_z += 0.05) {
+            for (double stop_loss = 0.02; stop_loss <= 0.10; stop_loss += 0.002) {
                 
                 futures.push_back(std::async(std::launch::async, 
                     &WalkForwardController::evaluate_combination, this, 
