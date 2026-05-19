@@ -10,7 +10,7 @@ universe = ['XOM', 'CVX', 'BP', 'SHEL', 'JPM', 'BAC', 'WFC', 'MS', 'KO', 'PEP', 
             'CL', 'MNST', 'KDP', 'MS', 'V', 'XLF', 'NEE', 'XLU', 'XOM', 'CVX', 'UPS', 'FDX', 'HD',
             'LOW', 'TXN', 'ADI', 'GILD', 'BIIB']
 
-data = download_ticker_data_vix(universe, '2010-01-01', '2019-01-01')
+data = download_ticker_data_vix(universe, '2020-01-01', '2026-01-01')
 results = find_cointegrated_pairs(data, universe)
 
 

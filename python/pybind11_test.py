@@ -3,8 +3,6 @@ import os
 
 print("Current Python version:", sys.version)
 
-# Ensure Python can see the directory containing qr_engine_boost.pyd
-sys.path.append(os.getcwd())
 
 # Import your compiled C++ engine!
 import qr_engine_boost as qr

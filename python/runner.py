@@ -1,6 +1,46 @@
 import os
 import subprocess
 import pandas as pd
+import qr_engine_boost as qr
+
+def run_research_pipeline(csv_file_path, train_test_split = 0.6): 
+    # use cpp to load the data
+    provider = qr.CSVDataProvider(csv_file_path)
+    provider.load_all()
+
+    # split the data
+    total_ticks = provider.total_ticks()
+    train_end = int(total_ticks * train_test_split)
+    
+    logger = qr.TradeLogger("./data/backtest_logs/execution_run.csv")
+    controller = qr.WalkForwardController(provider, logger)
+    
+    # Hand off the heavy computing task to the C++ std::async thread-pool
+    search_results = controller.run_parallel_search(0, train_end)
+    
+    # Find the best configuration using a standard Python list comprehension / lambda
+    best_config = max(search_results, key=lambda x: x.sharpe_ratio)
+
+    forward_test = controller.execute_window_optimized(
+        train_end, 
+        total_ticks, 
+        best_config.entry_z, 
+        best_config.stop_loss, 
+        best_config
+    )
+
+    result_dict = {
+        'Alpha':best_config.alpha,
+        'Beta':best_config.beta,
+        'Entry Z-Score':best_config.entry_z,
+        'Stop Loss':best_config.stop_loss * 100,
+        'In-Sample SR':best_config.sharpe_ratio,
+        'Forward Test PnL':forward_test.total_pnl,
+        'Forward Test Sharpe':forward_test.sharpe_ratio,
+        'Total Executed Trades':forward_test.trade_count
+    }
+
+    return result_dict
 
 def run_batch_backtest():
     # 1. Config
@@ -22,29 +62,15 @@ def run_batch_backtest():
 
         # 2. Execute backtest.exe with the file path as an argument
         # capture_output=True grabs the std::cout from your C++ code
-        result = subprocess.run(
-            [executable, file_path], 
-            capture_output=True, 
-            text=True, 
-            check=True
-        )
-        
-        substrings = filename.split("_")
-        ticker1 = substrings[0]
-        ticker2 = substrings[1]
-        results = result.stdout.split(",")
-        pnl = float(results[0])
-        alpha = float(results[1])
-        beta = float(results[2])
-        output_list.append({'Ticker1':ticker1, 'Ticker2':ticker2, 'PnL':pnl, 'Alpha':alpha, 'Beta':beta})
+        result = run_research_pipeline(file_path)
+        output_list.append(result)
 
     outputs = pd.DataFrame(output_list)
-    outputs = outputs.sort_values(by='PnL')
 
     outputs.to_csv(output_csv)
     print(f"\nBatch complete! Results written to {output_csv}")
 
     print(f"\nDescription:\n{outputs.describe()}")
 
-if __name__ == "__main__":
-    run_batch_backtest()
+
+run_batch_backtest()
