@@ -27,12 +27,15 @@ namespace qr_math {
             double intercept;
         };
 
-        inline double calculate_mean(const std::deque<double>& v) {
+        // FIXED: Transformed to templates using const-references to eliminate container copy overhead
+        template <typename Container>
+        inline double calculate_mean(const Container& v) {
             if (v.empty()) return 0.0;
             return std::accumulate(v.begin(), v.end(), 0.0) / v.size();
         }
 
-        inline double calculate_stddev(const std::deque<double>& v, double mean) {
+        template <typename Container>
+        inline double calculate_stddev(const Container& v, double mean) {
             if (v.size() < 2) return 0.0;
             double sq_sum = 0;
             for (double x : v) sq_sum += (x - mean) * (x - mean);
@@ -80,27 +83,21 @@ namespace qr_math {
 
     // --- 3. VOLATILITY & SIGNAL SCALING ---
     namespace signals {
-        // Consolidated VIX scaling
         inline double get_vix_scaled_threshold(double base_threshold, double current_vix, double avg_vix) {
             if (avg_vix <= 0) return base_threshold;
             double vol_ratio = current_vix / avg_vix;
-            // Use sqrt to dampen the impact of spikes, ensuring a floor of 0.8x
             return base_threshold * std::max(0.8, std::sqrt(vol_ratio));
         }
 
-        // get golatility adjusted threshold
         inline double get_vol_adjusted_threshold(double base_threshold, double current_vix, double avg_vix) {
             if (avg_vix == 0) return base_threshold;
             double vol_ratio = current_vix / avg_vix;
             return base_threshold * std::sqrt(vol_ratio);
         } 
 
-        // GARCH(1,1) Volatility Prediction
-        inline double get_garch_threshold(double base_threshold, double last_residual, double last_var) {
-            const double omega = 0.000005; 
-            const double alpha = 0.04;     
-            const double beta = 0.90;      
-
+        // FIXED: Passed parameters explicitly to incorporate real-time calibrated values
+        inline double get_garch_threshold(double base_threshold, double last_residual, double last_var, 
+                                          double omega, double alpha, double beta) {
             double predicted_var = omega + (alpha * std::pow(last_residual, 2)) + (beta * last_var);
             double predicted_sigma = std::sqrt(predicted_var);
 
@@ -114,23 +111,21 @@ namespace qr_math {
         inline double calculate_sharpe(const std::vector<double>& trade_pnls, double initial_capital) {
             if (trade_pnls.size() < 2) return 0.0;
 
-            // Convert PnL to percentage returns
             std::vector<double> returns;
+            returns.reserve(trade_pnls.size()); // Pre-allocate memory optimization
             for (double pnl : trade_pnls) {
                 returns.push_back(pnl / initial_capital);
             }
 
-            // Use our existing stats functions
-            std::deque<double> d_returns(returns.begin(), returns.end());
-            double mean = stats::calculate_mean(d_returns);
-            double std_dev = stats::calculate_stddev(d_returns, mean);
+            // FIXED: No heap reallocation or deque copying. Templates pass the reference directly.
+            double mean = stats::calculate_mean(returns);
+            double std_dev = stats::calculate_stddev(returns, mean);
 
             if (std_dev < 1e-9) return 0.0;
 
-            // Annualize (adjust the 252 if your trade frequency is higher/lower)
             return (mean / std_dev) * std::sqrt(252);
         }
     }
 }
 
-#endif
+#endif // QUANT_MATH_UTILS_HPP

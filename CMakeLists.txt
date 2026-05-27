@@ -17,6 +17,20 @@ target_include_directories(quant_core INTERFACE
 # Pool your core C++ processing logic source files here
 set(ENGINE_SOURCES
     src/engines/trading_engine.cpp
+    src/engines/walk_forward_controller.cpp
+)
+
+set(CORE_SOURCES
+    src/core/garch_calibrator.cpp
+    src/core/csv_data_provider.cpp
+    src/core/signal_policy.cpp
+    src/core/trade_logger.cpp
+    src/core/summary_logger.cpp
+)
+
+set(PROJECT_SOURCES
+    ${CORE_SOURCES}
+    ${ENGINE_SOURCES}
 )
 
 # ============================================================================
@@ -37,25 +51,18 @@ FetchContent_MakeAvailable(pybind11)
 # ============================================================================
 
 # Standard Backtester Command-Line App (Compiles cleanly without needing Python hooks)
-add_executable(backtester
-    src/main_backtest.cpp 
-    ${ENGINE_SOURCES}
+add_executable(main 
+    src/main.cpp
+    ${PROJECT_SOURCES}
 )
-target_link_libraries(backtester PRIVATE quant_core)
-
-# Standard Predictor Command-Line App
-add_executable(predictor 
-    src/main_predict.cpp 
-    ${ENGINE_SOURCES} 
-)
-target_link_libraries(predictor PRIVATE quant_core)
+target_link_libraries(main PRIVATE quant_core)
 
 # ============================================================================
 # 4. Define the Python Extension Target (Uses pybind11 and bindings.cpp)
 # ============================================================================
 
 # Create your shared binary library module (.pyd / .so extension format)
-pybind11_add_module(qr_engine_boost src/bindings.cpp ${ENGINE_SOURCES})
+pybind11_add_module(qr_engine_boost src/bindings.cpp ${PROJECT_SOURCES})
 
 # Explicitly link your custom framework mechanics and pybind configurations
 target_link_libraries(qr_engine_boost PRIVATE quant_core pybind11::module)
@@ -64,12 +71,10 @@ target_link_libraries(qr_engine_boost PRIVATE quant_core pybind11::module)
 # 5. Optimization & Compiler Warning Configuration
 # ============================================================================
 if(MSVC)
-    target_compile_options(backtester PRIVATE /W4 /O2 /EHsc)
-    target_compile_options(predictor PRIVATE /W4 /O2 /EHsc)
+    target_compile_options(main PRIVATE /W4 /O2 /EHsc)
     target_compile_options(qr_engine_boost PRIVATE /W4 /O2 /EHsc)
 else()
-    target_compile_options(backtester PRIVATE -Wall -Wextra -O3 -pthread)
-    target_compile_options(predictor PRIVATE -Wall -Wextra -O3 -pthread)
+    target_compile_options(main PRIVATE -Wall -Wextra -O3 -pthread)
     target_compile_options(qr_engine_boost PRIVATE -Wall -Wextra -O3 -pthread)
 endif()
 

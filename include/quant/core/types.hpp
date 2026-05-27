@@ -37,5 +37,28 @@ namespace qr_core {
         uint64_t volume_a;
         uint64_t volume_b;
     };
+
+    struct OptimizationResult {
+        double alpha;
+        double beta;
+        double omega;
+        double gamma;
+        double total_pnl;
+        double sharpe_ratio;
+        double entry_z;
+        double stop_loss;
+        int trade_count;
+    };
+
+    struct BacktestResult {
+        double total_pnl       = 0.0;
+        double sharpe_ratio     = 0.0;
+        double max_drawdown    = 0.0;
+        int trade_count        = 0;
+        
+        // Contextual tracking tags
+        double applied_entry_z = 0.0;
+        double applied_stop    = 0.0;
+    };
 }
 #endif

@@ -5,6 +5,7 @@
 #include <quant/core/types.hpp>
 #include <quant/core/trade_logger.hpp>
 #include <quant/core/signal_policy.hpp>
+#include <quant/core/csv_data_provider.hpp>
 #include <memory>
 #include <vector>
 #include <cmath>
@@ -19,11 +20,16 @@ public:
         : policy_(policy), logger_(logger) {}
 
     // OVERLOAD FOR PARALLEL OPTIMIZATION: Allows overriding parameters per thread run
-    void run_optimized(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx, 
+    qr_core::BacktestResult run_optimized(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx, 
                        double custom_entry_z, double custom_stop_loss);
 
     // Standard run interface
-    void run(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx);
+    // Inside your trading engine class declaration:
+    qr_core::BacktestResult run(
+        qr_core::IDataProvider& provider, 
+        size_t start_idx, 
+        size_t end_idx
+    );
     
     // Performance metrics
     double getPortfolioValue() const { return portfolio_value_; }
