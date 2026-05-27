@@ -75,5 +75,7 @@ PYBIND11_MODULE(qr_engine_boost, m) {
 
         // Forward simulation validation step
         .def("execute_forward_window", &qr_engine::WalkForwardController::execute_forward_window,
-             py::arg("start_idx"), py::arg("end_idx"), py::arg("entry_z"), py::arg("stop_loss"), py::arg("garch_params"));
-}
+         py::arg("train_start"), py::arg("train_end"), py::arg("oos_start"), 
+         py::arg("oos_end"), py::arg("entry_z"), py::arg("stop_loss"));
+
+        }

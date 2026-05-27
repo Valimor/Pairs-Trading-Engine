@@ -105,11 +105,12 @@ int main(int argc, char* argv[]) {
     
     // FIXED: Catches performance fields using the correct BacktestResult definition 
     qr_core::BacktestResult forward_validation = controller.execute_forward_window(
+        train_start,
+        train_end,
         test_start, 
         test_end, 
         best_config.applied_entry_z, 
-        best_config.applied_stop,
-        fitted_garch
+        best_config.applied_stop
     );
 
     // 8. Performance Metrics Analysis Output

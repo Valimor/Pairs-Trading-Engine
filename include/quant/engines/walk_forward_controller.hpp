@@ -29,9 +29,12 @@ public:
 
     // Executes the chosen parameters strictly Out-of-Sample on a forward window
     qr_core::BacktestResult execute_forward_window(
-        size_t oos_start, size_t oos_end, 
-        double entry_z, double stop_loss, 
-        const qr_math::GarchParameters& garch_params
+        size_t train_start,
+        size_t train_end,
+        size_t oos_start, 
+        size_t oos_end, 
+        double entry_z, 
+        double stop_loss
     );
 
     qr_core::BacktestResult evaluate_combination(

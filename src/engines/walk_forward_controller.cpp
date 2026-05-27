@@ -127,26 +127,46 @@ qr_core::BacktestResult WalkForwardController::evaluate_combination(
 // 5. Out-of-Sample Forward Execution
 // ============================================================================
 qr_core::BacktestResult WalkForwardController::execute_forward_window(
-    size_t start_idx, 
-    size_t end_idx, 
+    size_t train_start,
+    size_t train_end,
+    size_t oos_start, 
+    size_t oos_end, 
     double entry_z, 
-    double stop_loss,
-    const qr_math::GarchParameters& garch_params) 
+    double stop_loss) 
 {
-    // Forward windows pass variables directly into the live production execution engine
+
+    // 1. Extract historical data directly within C++ space
+    Eigen::VectorXd training_spreads = extract_historical_spreads(train_start, train_end);
+    Eigen::VectorXd training_vix     = extract_historical_vix(train_start, train_end);
+
+    // 2. Perform the MLE Fit locally on the stack
+    qr_math::GarchCalibrator internal_calibrator;
+    qr_math::GarchParameters internal_params = internal_calibrator.fit(training_spreads, training_vix);
+
+    std::cout << "[OOS] Calibration complete. Generated Alpha: " << internal_params.alpha 
+              << ", Beta: " << internal_params.beta << "\n";
+
+    // 3. Construct the strategy policy using the freshly minted internal parameters
     qr_engine::GarchPolicy forward_policy(
         entry_z, 
-        garch_params.alpha, 
-        garch_params.beta, 
-        garch_params.omega, 
-        garch_params.gamma
+        internal_params.alpha, 
+        internal_params.beta, 
+        internal_params.omega, 
+        internal_params.gamma
     );
 
-    // Bind this to your real, stateful class logger instance
+    // 4. Instantiate the trading engine and execute out-of-sample forward simulation
     qr_engine::TradingEngine forward_engine(forward_policy, logger_);
     
-    qr_core::BacktestResult final_performance = forward_engine.run_optimized(provider_, start_idx, end_idx, entry_z, stop_loss);
+    qr_core::BacktestResult final_performance = forward_engine.run_optimized(
+        provider_, 
+        oos_start, 
+        oos_end, 
+        entry_z, 
+        stop_loss
+    );
     
+    // Bind applied tracking hyperparameters to metadata fields
     final_performance.applied_entry_z = entry_z;
     final_performance.applied_stop = stop_loss;
 
