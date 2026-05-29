@@ -15,14 +15,13 @@ struct GarchParameters {
 
 class GarchCalibrator {
 private:
-    // Kept private since users of the calibrator only care about the final fit results
     static double calculate_nll(const Eigen::VectorXd& residuals, const Eigen::VectorXd& exo_data, 
         double omega, double alpha, double beta, double gamma);
 
 public:
     GarchCalibrator() = default;
     
-    // Clear blueprint interface
+    // constructor
     GarchParameters fit(const Eigen::VectorXd& spreads, const Eigen::VectorXd& exo_data);
 };
 

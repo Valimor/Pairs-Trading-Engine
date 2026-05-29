@@ -17,7 +17,7 @@ namespace qr_core {
         // Basic identifiers
         std::string symbol_a;
         std::string symbol_b;
-        std::string date_str; // Or use a long long for unix epoch time
+        std::string date_str; // Or use a long long for unix epoch time (TODO)
         std::uint64_t timestamp = 0; // The numerical version of the date
         
         // Price data

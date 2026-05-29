@@ -18,7 +18,7 @@ struct TradeRecord {
 
 class TradeLogger {
 private:
-    std::ofstream file_; // Renamed to style convention
+    std::ofstream file_; 
 
 public:
     explicit TradeLogger(const std::string& filename);

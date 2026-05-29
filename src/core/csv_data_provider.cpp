@@ -7,8 +7,6 @@
 namespace qr_core {
 
 
-
-// Constructor: FIXED to properly initialize file_path_ using an initialization list
 CSVDataProvider::CSVDataProvider(const std::string& filepath) 
     : current_index(0), file_path_(filepath) 
 {

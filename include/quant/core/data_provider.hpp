@@ -7,7 +7,6 @@
 
 namespace qr_core {
 
-// The Abstract Base Class (The Interface)
 class IDataProvider {
 public:
     virtual ~IDataProvider() = default;
@@ -18,7 +17,7 @@ public:
     // Reset to the beginning (useful for backtesting)
     virtual void reset() = 0;
 
-    // In your IDataProvider interface
+    // overriding data provider interface
     virtual std::optional<MarketData> get_tick_at(size_t index) = 0;
     virtual size_t total_ticks() const = 0;
 };

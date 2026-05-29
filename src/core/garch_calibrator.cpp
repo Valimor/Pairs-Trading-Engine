@@ -46,7 +46,7 @@ GarchParameters GarchCalibrator::fit(const Eigen::VectorXd& spreads, const Eigen
         return GarchParameters{0.000005, 0.05, 0.85, 0.01, std::numeric_limits<double>::max()};
     }
 
-    // 1. Calculate residuals (first difference of the spread)
+    // 1. Calculate residuals
     Eigen::VectorXd residuals = Eigen::VectorXd::Zero(T - 1);
     Eigen::VectorXd truncated_exo = Eigen::VectorXd::Zero(T - 1);
     
@@ -56,6 +56,7 @@ GarchParameters GarchCalibrator::fit(const Eigen::VectorXd& spreads, const Eigen
     }
 
     // 2. Hyperparameter Optimization Starting Estimates
+    // TODO: make the starting estimates dynamic
     double omega = 0.000005;
     double alpha = 0.05;
     double beta = 0.85;
@@ -78,7 +79,7 @@ GarchParameters GarchCalibrator::fit(const Eigen::VectorXd& spreads, const Eigen
         double d_gamma = (calculate_nll(residuals, truncated_exo, omega, alpha, beta, gamma + h) - 
                           calculate_nll(residuals, truncated_exo, omega, alpha, beta, gamma - h)) / (2.0 * h);
 
-        // Gradient Descent Adjustments
+        // Gradient Descent Steps
         double next_alpha = alpha - learning_rate * d_alpha;
         double next_beta  = beta - learning_rate * d_beta;
         double next_gamma = gamma - learning_rate * d_gamma;

@@ -6,9 +6,6 @@
 
 namespace qr_engine {
 
-// ============================================================================
-// Standard Path (Using policy's internal/calibrated parameters)
-// ============================================================================
 qr_core::BacktestResult TradingEngine::run(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx) {
     reset_portfolio(); 
     
@@ -31,9 +28,6 @@ qr_core::BacktestResult TradingEngine::run(qr_core::IDataProvider& provider, siz
     return results;
 }
 
-// ============================================================================
-// Optimization/Grid Path (Forcing explicit parameters per core run)
-// ============================================================================
 qr_core::BacktestResult TradingEngine::run_optimized(qr_core::IDataProvider& provider, size_t start_idx, size_t end_idx, 
                                                    double custom_entry_z, double custom_stop_loss) {
     reset_portfolio();
@@ -56,9 +50,7 @@ qr_core::BacktestResult TradingEngine::run_optimized(qr_core::IDataProvider& pro
     return results;
 }
 
-// ============================================================================
-// Tick Processing Core Engine
-// ============================================================================
+
 void TradingEngine::on_tick(const qr_core::MarketData& tick, double entry_override, double stop_override) {
     double current_spread = qr_math::basic::calculate_spread(tick.price_a, tick.price_b, tick.beta);
     
@@ -122,9 +114,6 @@ void TradingEngine::check_signals(const qr_core::MarketData& tick, double spread
     }
 }
 
-// ============================================================================
-// Performance Analytics Computations
-// ============================================================================
 double TradingEngine::get_sharpe() const {
     if (trade_pnls_.empty()) return 0.0;
 

@@ -27,7 +27,7 @@ namespace qr_math {
             double intercept;
         };
 
-        // FIXED: Transformed to templates using const-references to eliminate container copy overhead
+        // Transformed to templates using const-references to eliminate container copy overhead
         template <typename Container>
         inline double calculate_mean(const Container& v) {
             if (v.empty()) return 0.0;
@@ -63,6 +63,8 @@ namespace qr_math {
             return {beta, intercept};
         }
 
+        // TODO: check if this should still be a deque
+        // I suspect yes
         inline double calculate_half_life(const std::deque<double>& spread_history) {
             if (spread_history.size() < 10) return 0.0;
 
@@ -95,7 +97,6 @@ namespace qr_math {
             return base_threshold * std::sqrt(vol_ratio);
         } 
 
-        // FIXED: Passed parameters explicitly to incorporate real-time calibrated values
         inline double get_garch_threshold(double base_threshold, double last_residual, double last_var, 
                                           double omega, double alpha, double beta) {
             double predicted_var = omega + (alpha * std::pow(last_residual, 2)) + (beta * last_var);
@@ -117,7 +118,6 @@ namespace qr_math {
                 returns.push_back(pnl / initial_capital);
             }
 
-            // FIXED: No heap reallocation or deque copying. Templates pass the reference directly.
             double mean = stats::calculate_mean(returns);
             double std_dev = stats::calculate_stddev(returns, mean);
 

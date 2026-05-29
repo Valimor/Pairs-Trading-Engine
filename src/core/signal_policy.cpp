@@ -5,16 +5,10 @@
 
 namespace qr_engine {
 
-// ============================================================================
-// VixScaledPolicy Implementation
-// ============================================================================
 double VixScaledPolicy::get_threshold(const qr_core::MarketData& tick) {
     return qr_math::signals::get_vix_scaled_threshold(2.0, tick.vix, tick.avg_vix);
 }
 
-// ============================================================================
-// RollingVolPolicy Implementation
-// ============================================================================
 RollingVolPolicy::RollingVolPolicy(double base) : base_threshold_(base) {}
 
 double RollingVolPolicy::get_threshold(const qr_core::MarketData& tick) {
@@ -26,9 +20,6 @@ double RollingVolPolicy::get_threshold(const qr_core::MarketData& tick) {
     return base_threshold_ * std::max(1.0, vol_ratio);
 }
 
-// ============================================================================
-// GarchPolicy Implementation
-// ============================================================================
 GarchPolicy::GarchPolicy(double entry_z, double base, double a, double b, double w) 
     : entry_z_(entry_z),
       base_threshold_(base), 
@@ -41,7 +32,7 @@ double GarchPolicy::get_threshold(const qr_core::MarketData& tick) {
     double predicted_var = omega_ + 
                           (alpha_ * std::pow(last_residual_, 2)) + 
                           (beta_ * last_variance_) + 
-                          (gamma_ * tick.vix); // <-- FIXED: Ingest external feature
+                          (gamma_ * tick.vix);
                           
     double predicted_sigma = std::sqrt(predicted_var);
 
